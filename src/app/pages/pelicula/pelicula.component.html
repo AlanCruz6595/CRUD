@@ -1,0 +1,68 @@
+<h1 class="text-white text-center aqua-gradient">Película <small>(Nombre de la película)</small></h1>
+<hr>
+<hr>
+
+<!--Boton de regresar  -->
+<div class="row">
+  <div class="col text-right text-white">
+    <button routerLink="/peliculas" type="button" mdbBtn style="background-color: rgb(247, 16, 27);">
+      <mdb-icon fas icon="arrow-left"></mdb-icon> Regresar
+    </button>
+  </div>
+</div>
+<hr>
+
+<!--Formulario de Peliculas-->
+
+<!--Form with header-->
+
+<form (ngSubmit)="guardar( f )" #f="ngForm">
+    
+  <mdb-card-body class="mx-4">
+
+    <div class="md-form">
+      <mdb-icon fas icon="fingerprint" class="prefix grey-text"></mdb-icon>
+      <input type="text" id="form104" class="form-control" mdbInput [(ngModel)]="pelicula.id" name="id">
+      <label for="form104">FireBase ID</label>
+      <small class="form-text text-muted">Campo autogenerado</small>
+    </div>
+
+    <div class="md-form">
+      <mdb-icon fas icon="film" class="prefix grey-text"></mdb-icon>
+      <input type="text" id="form105" class="form-control" mdbInput [(ngModel)]="pelicula.titulo" name="titulo" required>
+      <label for="form105">Titulo *</label>
+    </div>
+
+    <div class="md-form">
+      <mdb-icon fas icon="user" class="prefix grey-text"></mdb-icon>
+      <input type="text" id="form106" class="form-control" mdbInput [(ngModel)]="pelicula.director" name="director">
+      <label for="form106" required>Director</label>
+    </div>
+
+    <div class="md-form">
+      <mdb-icon fas icon="calendar-alt" class="prefix grey-text"></mdb-icon>
+      <input type="text" id="form106" class="form-control" mdbInput [(ngModel)]="pelicula.estreno" name="estreno">
+      <label for="form106">Año</label>
+    </div>
+    <!--Grid row-->
+    <div class="row d-flex align-items-center mb-3 mt-4">
+
+      <!--Grid column-->
+      <div class="col-md-12">
+        <div class="text-center">
+          <button type="submit" mdbBtn color="grey" rounded="true" class="z-depth-1a" style="color: aqua;">
+            <mdb-icon fas icon="save"></mdb-icon> Guardar
+          </button>
+        </div>
+      </div>
+      <!--Grid column-->
+
+    </div>
+    <!--Grid row-->
+  </mdb-card-body>
+
+</form>
+<!--/Form with header-->
+
+
+<!--  -->

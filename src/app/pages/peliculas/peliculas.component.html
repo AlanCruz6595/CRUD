@@ -1,0 +1,46 @@
+<h1 class="text-center text-uppercase mb-5 blue-gradient">Películas</h1>
+
+<!-- Boton de agregar -->
+<div class="row">
+  <div class="col text-right">
+    <button routerLink="/pelicula/estrenos" type="button" mdbBtn style="background-color: #00C851;">
+      <mdb-icon far icon="plus-square"></mdb-icon> Agregar
+    </button>
+  </div>
+</div>
+<hr>
+
+
+<!-- Tabla -->
+<table mdbTable>
+  <thead class="black white-text">
+    <tr>
+      <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr mdbTableCol *ngFor="let pelicula of peliculas; let i = index">
+      <th scope="row">{{ i + 1}}</th>
+      <td>{{pelicula.titulo}}</td>
+      <td>{{pelicula.director}}</td>
+      <td>{{pelicula.estreno}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Alerta -->
+<div class="alert alert-danger text-center mt-4" role="alert">
+  <h4 class="alert-heading text-uppercase">Sin registros!</h4>
+  <p>
+    <mdb-icon fas icon="info-circle fa-2x"></mdb-icon>
+  </p>
+  <p class="mb-0">Espere por favor</p>
+</div>
+
+<h3 class="alert-heading text-center text-white mb-4 pt-4">Cargando!</h3>
+<div class="d-flex justify-content-center mb-3">
+  <div class="spinner-border text-success" style="width: 3rem; height: 3rem;" role="status">
+    <span class="sr-only">Cargando...</span>
+  </div>
+</div>
+<h5 class="text-center text-white">Espere por favor.</h5>
