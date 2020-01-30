@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { PeliculaModelo } from '../models/pelicula.model';
 
 // Import operdor Map
-import { map } from 'rxjs/operators';
+import { map,delay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -36,10 +36,21 @@ export class PeliculasService {
     return this.http.put(`${this.urlData}/peliculas/${pelicula.id}.json`, peliculaTemp);
    }
 
+   suprimirPeli(id: string){
+
+    return this.http.delete(`${this.urlData}/peliculas/${id}.json`);
+   }
+
+   getMovie( id: string){
+
+    return this.http.get(`${this.urlData}/peliculas/${id}.json`)     
+   }
+
    getPeliculas(){
      return this.http.get(`${this.urlData}/peliculas.json`)
      .pipe(
-      map(this.crearArreglo)
+      map(this.crearArreglo),
+      delay(1000)
      );
    }
    private crearArreglo( peliculasObj: object){

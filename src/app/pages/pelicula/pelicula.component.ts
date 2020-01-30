@@ -5,6 +5,7 @@ import { PeliculasService } from 'src/app/services/peliculas.service';
 
 import Swal from 'sweetalert2';
 import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-pelicula',
@@ -15,9 +16,19 @@ export class PeliculaComponent implements OnInit {
 
   pelicula = new PeliculaModelo();
 
-  constructor(private peliculasService: PeliculasService) { }
+  constructor(private peliculasService: PeliculasService, private route:ActivatedRoute) { }
 
   ngOnInit() {
+
+    const id = this.route.snapshot.paramMap.get('id');
+
+    if (id !==  'nuevo'){
+      this.peliculasService.getMovie(id).subscribe( (resp: PeliculaModelo)=>{
+        this.pelicula = resp;
+        this.pelicula.id = id;
+      });
+    }
+    
   }
 
   guardar( form: NgForm){
